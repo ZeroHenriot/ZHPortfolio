@@ -10,7 +10,7 @@ const MyBiography = () => {
     >
       <Typography className="text-white text-4xl my-10">
         {' '}
-        &#60; Who I am? <span className="text-gold">/</span> &#62;{' '}
+        &#60; Who am I? <span className="text-gold">/</span> &#62;{' '}
       </Typography>
 
       <div className="typewriter w-fit text-white grid gap-4 lg:grid-cols-2 lg:mx-0">
