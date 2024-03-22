@@ -43,7 +43,7 @@ const MySkills = () => {
       }`}
       id="Skills"
     >
-      <Typography className="text-white text-5xl my-10">
+      <Typography className="text-white text-4xl my-10">
         {' '}
         &#60; Skills <span className="text-gold">/</span> &#62;{' '}
       </Typography>

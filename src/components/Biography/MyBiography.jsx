@@ -8,7 +8,7 @@ const MyBiography = () => {
       className="container mx-auto flex flex-col justify-center px-5 py-20 animate__animated animate__fadeInLeft"
       id="About"
     >
-      <Typography className="text-white text-5xl my-10">
+      <Typography className="text-white text-4xl my-10">
         {' '}
         &#60; Who I am? <span className="text-gold">/</span> &#62;{' '}
       </Typography>

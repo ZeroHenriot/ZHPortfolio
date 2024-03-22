@@ -48,7 +48,7 @@ const MyProjects = () => {
         }`}
         id="Projects"
       >
-        <Typography className="text-white text-5xl my-10 px-5">
+        <Typography className="text-white text-4xl my-10 px-5">
           {' '}
           &#60; My Projects <span className="text-gold">/</span> &#62;{' '}
         </Typography>
