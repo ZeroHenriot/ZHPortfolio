@@ -6,13 +6,14 @@ import {
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import logo from '../../assets/logo.png'
 
 const MyFooter = () => {
   return (
     <footer className="w-full bg-[#080215] p-8">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12  md:justify-between">
         <a href="#">
-          <img src="src\assets\logo.png" alt="logo" className="w-10" />
+          <img src={logo} alt="logo" className="w-10" />
         </a>
 
         <Typography>

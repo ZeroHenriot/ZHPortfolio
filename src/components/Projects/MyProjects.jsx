@@ -11,6 +11,10 @@ import './MyProject.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useEffect, useState } from 'react'
+import pubzero from '../../assets/pubzero.png'
+import linkedin from '../../assets/Linkedin.png'
+import weatherapp from '../../assets/WeatherApp.png'
+import f1 from '../../assets/F1.png'
 
 const MyProjects = () => {
   const [animation, setAnimation] = useState(false)
@@ -58,7 +62,7 @@ const MyProjects = () => {
         >
           <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
             <CardHeader color="blue-gray" className="relative">
-              <img src="src\assets\pubzero.png" alt="card-image" />
+              <img src={pubzero} alt="pubzero-project" />
             </CardHeader>
             <CardBody>
               <Typography variant="h5" className="mb-2 text-gold">
@@ -85,7 +89,7 @@ const MyProjects = () => {
           </Card>
           <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
             <CardHeader color="blue-gray" className="relative">
-              <img src="src\assets\F1.png" alt="card-image" />
+              <img src={f1} alt="capstone-project" />
             </CardHeader>
             <CardBody>
               <Typography variant="h5" className="mb-2 text-gold">
@@ -112,7 +116,7 @@ const MyProjects = () => {
           </Card>
           <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
             <CardHeader color="blue-gray" className="relative">
-              <img src="src\assets\Linkedin.png" alt="card-image" />
+              <img src={linkedin} alt="linkedin-project" />
             </CardHeader>
             <CardBody>
               <Typography variant="h5" className="mb-2 text-gold">
@@ -139,7 +143,7 @@ const MyProjects = () => {
           </Card>
           <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
             <CardHeader color="blue-gray" className="relative">
-              <img src="src\assets\WeatherApp.png" alt="card-image" />
+              <img src={weatherapp} alt="weatherapp-project" />
             </CardHeader>
             <CardBody>
               <Typography variant="h5" className="mb-2 text-gold">
