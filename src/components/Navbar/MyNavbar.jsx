@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import {
   Navbar,
   MobileNav,
@@ -7,9 +7,9 @@ import {
 } from '@material-tailwind/react'
 
 const MyNavbar = () => {
-  const [openNav, setOpenNav] = React.useState(false)
+  const [openNav, setOpenNav] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener(
       'resize',
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -22,7 +22,7 @@ const MyNavbar = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium "
+        className="flex items-center gap-x-2 text-xl text-white hover:text-gold p-1 font-medium "
       >
         <a href="#About" className="flex items-center">
           About Me
@@ -32,9 +32,9 @@ const MyNavbar = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium "
+        className="flex items-center gap-x-2 text-xl text-white hover:text-gold p-1 font-medium "
       >
-        <a href="#" className="flex items-center">
+        <a href="#Projects" className="flex items-center">
           Projects
         </a>
       </Typography>
@@ -42,9 +42,9 @@ const MyNavbar = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium "
+        className="flex items-center gap-x-2 text-xl text-white hover:text-gold p-1 font-medium "
       >
-        <a href="#" className="flex items-center">
+        <a href="#Skills" className="flex items-center">
           Skills
         </a>
       </Typography>
@@ -52,9 +52,9 @@ const MyNavbar = () => {
         as="li"
         variant="small"
         color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium "
+        className="flex items-center gap-x-2 text-xl text-white hover:text-gold p-1 font-medium "
       >
-        <a href="#" className="flex items-center">
+        <a href="#Contacts" className="flex items-center">
           Contacts
         </a>
       </Typography>
@@ -63,7 +63,7 @@ const MyNavbar = () => {
 
   return (
     <>
-      <Navbar className="px-4 py-2 lg:px-8 lg:py-4 max-w-full rounded-none opacity-50 bg-white sticky top-0 z-50">
+      <Navbar className="px-4 py-2 lg:px-8 lg:py-4 max-w-full rounded-none backdrop-blur-sm bg-white/30 border-none sticky top-0 z-50">
         <div className="flex items-center text-blue-gray-900 justify-center ">
           <div className="hidden lg:block">{navList}</div>
 

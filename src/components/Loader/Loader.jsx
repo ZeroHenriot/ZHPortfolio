@@ -24,9 +24,11 @@ const Loader = ({ onClick, clicked }) => {
         className="rounded-full flex justify-center items-center absolute"
         id="spinner-center"
       >
-        <Typography className="text-9xl text-center animate-pulse text-[#9376a8]">
-          Click Here!
-        </Typography>
+        <div className="typewriter-loader">
+          <Typography className="text-5xl md:text-7xl text-center animate-pulse text-[#9376a8]">
+            Start !
+          </Typography>
+        </div>
       </div>
     </div>
   )

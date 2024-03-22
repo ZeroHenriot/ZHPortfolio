@@ -9,6 +9,7 @@ module.exports = withMT({
       },
       colors: {
         gold: '#E5B80B',
+        html: '#e44d26',
       },
     },
   },

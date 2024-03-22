@@ -6,8 +6,8 @@
 }
 
 #spinner {
-  width: 500px;
-  height: 500px;
+  width: 280px;
+  height: 280px;
   background: rgb(82, 8, 138);
   background: -moz-linear-gradient(
     0deg,
@@ -30,10 +30,51 @@
 }
 
 #spinner-center {
-  width: 490px;
-  height: 490px;
+  width: 270px;
+  height: 270px;
   background-color: #080215;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 701px) {
+  #spinner {
+    width: 500px;
+    height: 500px;
+  }
+  #spinner-center {
+    width: 490px;
+    height: 490px;
+  }
+}
+
+.typewriter-loader p {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15px solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }

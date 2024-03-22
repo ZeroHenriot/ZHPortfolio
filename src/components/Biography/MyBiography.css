@@ -5,6 +5,10 @@
   overflow: hidden;
 }
 
+#bio_image {
+  object-fit: contain;
+}
+
 /* Animation */
 .anim-typewriter {
   animation: typewriter 6s steps(44) infinite,

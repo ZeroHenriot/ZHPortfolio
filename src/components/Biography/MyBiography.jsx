@@ -1,18 +1,25 @@
 import { Typography } from '@material-tailwind/react'
 import './MyBiography.css'
+import profile from '../../assets/profile.jpg'
 
 const MyBiography = () => {
   return (
     <div
-      className="container mx-auto flex justify-center mt-20 py-20 animate__animated animate__fadeInLeft"
+      className="container mx-auto flex flex-col justify-center px-5 py-20 animate__animated animate__fadeInLeft"
       id="About"
     >
-      <div className="typewriter w-fit text-white grid gap-4 grid-cols-2">
+      <Typography className="text-white text-5xl my-10">
+        {' '}
+        &#60; Who I am? <span className="text-gold">/</span> &#62;{' '}
+      </Typography>
+
+      <div className="typewriter w-fit text-white grid gap-4 lg:grid-cols-2 lg:mx-0">
         <div className=" flex justify-end">
           <img
-            src="src\assets\profile.jpg"
+            src={profile}
             alt="bio image"
             className="rounded"
+            id="bio_image"
           />
         </div>
         <div>
