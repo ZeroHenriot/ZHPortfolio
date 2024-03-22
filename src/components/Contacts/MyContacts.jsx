@@ -163,25 +163,6 @@ const MyContacts = () => {
             />
           </div>
           <div className="flex items-center justify-between text-xl text-white mt-3">
-            <Checkbox
-              required
-              label={
-                <Typography
-                  variant="small"
-                  color="gray"
-                  className="flex items-center font-normal text-xl text-white"
-                >
-                  I agree the
-                  <a
-                    href="#"
-                    className="font-medium transition-colors hover:text-gold text-xl text-white "
-                  >
-                    &nbsp;Terms and Conditions
-                  </a>
-                </Typography>
-              }
-              containerProps={{ className: '-ml-2.5' }}
-            />
             <Button type="submit" className="w-fit bg-gold text-lg">
               Send
             </Button>
