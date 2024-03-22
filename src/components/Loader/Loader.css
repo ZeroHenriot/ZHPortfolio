@@ -1,0 +1,39 @@
+#loader {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+#spinner {
+  width: 500px;
+  height: 500px;
+  background: rgb(82, 8, 138);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(82, 8, 138, 1) 37%,
+    rgba(147, 118, 168, 1) 72%,
+    rgba(147, 118, 168, 0) 89%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(82, 8, 138, 1) 37%,
+    rgba(147, 118, 168, 1) 72%,
+    rgba(147, 118, 168, 0) 89%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(82, 8, 138, 1) 37%,
+    rgba(147, 118, 168, 1) 72%,
+    rgba(147, 118, 168, 0) 89%
+  );
+}
+
+#spinner-center {
+  width: 490px;
+  height: 490px;
+  background-color: #080215;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

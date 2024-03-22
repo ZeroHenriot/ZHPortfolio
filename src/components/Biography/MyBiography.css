@@ -1,0 +1,38 @@
+.line-1 {
+  width: 110px;
+  border-right: 2px solid #e5b80b;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Animation */
+.anim-typewriter {
+  animation: typewriter 6s steps(44) infinite,
+    blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  20% {
+    width: 110px;
+  }
+  80% {
+    width: 110px;
+  }
+  90% {
+    width: 0;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: #e5b80b;
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
