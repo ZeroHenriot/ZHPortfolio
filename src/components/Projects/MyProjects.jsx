@@ -15,9 +15,11 @@ import pubzero from '../../assets/pubzero.png'
 import linkedin from '../../assets/Linkedin.png'
 import weatherapp from '../../assets/WeatherApp.png'
 import f1 from '../../assets/F1.png'
+import { useSelector } from 'react-redux'
 
 const MyProjects = () => {
   const [animation, setAnimation] = useState(false)
+  const lang = useSelector((state) => state.Language.lang)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +52,8 @@ const MyProjects = () => {
       >
         <Typography className="text-white text-4xl my-10 px-5">
           {' '}
-          &#60; My Projects <span className="text-gold">/</span> &#62;{' '}
+          &#60; {lang ? 'My Projects' : 'I miei progetti'}{' '}
+          <span className="text-gold">/</span> &#62;{' '}
         </Typography>
         <Carousel
           transition={{ duration: 2 }}
@@ -69,8 +72,10 @@ const MyProjects = () => {
                 PubZero
               </Typography>
               <Typography className="text-white">
-                Want a beer and some fun? PubZero is the perfect place for you!
-                Come visit us at our three pubs!
+                {lang
+                  ? 'Want a beer and some fun? PubZero is the perfect place for you! Come visit us at our three pubs'
+                  : "Vuoi una birra e un po' di divertimento? PubZero è il posto perfetto per te! Venite a trovarci nei nostri tre pub"}
+                !
               </Typography>
             </CardBody>
             <CardFooter>
@@ -96,8 +101,10 @@ const MyProjects = () => {
                 Capstone Project
               </Typography>
               <Typography className="text-white">
-                Do you like F1? Visit the website created by a passionate fan
-                for other fans and stay updated on the queen of motorsport!
+                {lang
+                  ? 'Do you like F1? Visit the website created by a passionate fan for other fans and stay updated on the queen of motorsport'
+                  : 'Ti piace la F1? Visita il sito creato da un appassionato per altri appassionati e rimani aggiornato sulla regina del motorsport'}
+                !
               </Typography>
             </CardBody>{' '}
             <CardFooter>
@@ -123,8 +130,10 @@ const MyProjects = () => {
                 Linkedin Clone
               </Typography>
               <Typography className="text-white">
-                Everyone knows LinkedIn, right? Well, here's a perfect clone of
-                the world's most renowned professional social network."
+                {lang
+                  ? "Everyone knows LinkedIn, right? Well, here's a perfect clone of the world's most renowned professional social network"
+                  : 'Tutti conoscono LinkedIn, giusto? Bene, ecco un clone perfetto del social network professionale più famoso al mondo'}
+                .
               </Typography>
             </CardBody>{' '}
             <CardFooter>
@@ -150,9 +159,10 @@ const MyProjects = () => {
                 Weather App
               </Typography>
               <Typography className="text-white">
-                It will rain? Will the sun shine? Or maybe it will snow? You
-                don't know? Well, then this app is perfect for you. Try it and
-                find out how you should dress.
+                {lang
+                  ? "It will rain? Will the sun shine? Or maybe it will snow? You don't know? Well, then this app is perfect for you. Try it and find out how you should dress"
+                  : 'Pioverà? Splenderà il sole? O forse nevicherà? Non lo sai? Bene, allora questa app è perfetta per te. Provatela e scoprite come dovreste vestirvi'}
+                .
               </Typography>
             </CardBody>
             <CardFooter className="pt-0">
@@ -162,7 +172,7 @@ const MyProjects = () => {
                   target="_blank"
                   className="TryItBtn font-bold"
                 >
-                  Try It!
+                  {lang ? 'Try It' : 'Provala'}!
                 </a>
                 <a
                   href="https://github.com/ZeroHenriot/progetto-u3-w2"

@@ -1,20 +1,27 @@
-.line-1 {
-  width: 110px;
+.line-en,
+.line-it {
   border-right: 2px solid #e5b80b;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.line-en {
+  width: 110px;
+}
+
+.line-it {
+  width: 200px;
 }
 
 #bio_image {
   object-fit: contain;
 }
 
-/* Animation */
-.anim-typewriter {
-  animation: typewriter 6s steps(44) infinite,
+.anim-typewriter-en {
+  animation: typewriter-en 6s steps(44) infinite,
     blinkTextCursor 500ms steps(44) infinite normal;
 }
-@keyframes typewriter {
+@keyframes typewriter-en {
   0% {
     width: 0;
   }
@@ -32,6 +39,30 @@
     width: 0;
   }
 }
+
+.anim-typewriter-it {
+  animation: typewriter-it 6s steps(44) infinite,
+    blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter-it {
+  0% {
+    width: 0;
+  }
+  20% {
+    width: 200px;
+  }
+  80% {
+    width: 200px;
+  }
+  90% {
+    width: 0;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
 @keyframes blinkTextCursor {
   from {
     border-right-color: #e5b80b;
