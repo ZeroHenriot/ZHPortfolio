@@ -67,7 +67,7 @@ const MyBiography = () => {
           <Typography className="text-xl mt-3">
             {lang
               ? "Oh, and let's not forget that I'm a junior front-end developer on a mission to bring a touch of digital magic to the world. So get ready to explore my digital universe of code, cats, and pixel-perfect wonders"
-              : 'Oh, e non dimentichiamo che sono uno sviluppatore front-end junior con la missione di portare un tocco di magia digitale nel mondo. Quindi preparati a esplorare il mio universo digitale fatto di codici, gatti e meraviglie meraviglie pixel-perfect.'}
+              : 'Oh, e non dimentichiamo che sono uno sviluppatore front-end junior con la missione di portare un tocco di magia digitale nel mondo. Quindi preparati a esplorare il mio universo digitale fatto di codici, gatti e meraviglie pixel-perfect.'}
             ! 🎮😸💻
           </Typography>
         </div>
