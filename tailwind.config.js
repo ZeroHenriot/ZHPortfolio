@@ -10,6 +10,8 @@ module.exports = withMT({
       colors: {
         gold: '#E5B80B',
         html: '#e44d26',
+        newmain: '#8fd3c8',
+        newsec: '#e1d2a6',
       },
     },
   },
