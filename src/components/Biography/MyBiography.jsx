@@ -1,78 +1,66 @@
 import { Typography } from '@material-tailwind/react'
 import './MyBiography.css'
-import profile from '../../assets/profile.jpg'
-
-import { useSelector } from 'react-redux'
+import Robot from '../Robot/Robot'
 
 const MyBiography = () => {
-  const lang = useSelector((state) => state.Language.lang)
-
   return (
-    <div
-      className="container mx-auto flex flex-col justify-center px-5 py-20 animate__animated animate__fadeInLeft"
-      id="About"
-    >
-      <Typography className="text-white text-4xl my-10">
-        {' '}
-        &#60; {lang ? 'Who am I? ' : 'Chi sono? '}
-        <span className="text-gold">/</span> &#62;{' '}
-      </Typography>
-
+    <>
       <div
-        className={`${
-          lang ? 'typewriter-en' : 'typewriter-it'
-        } w-fit text-white grid gap-4 lg:grid-cols-2 lg:mx-0`}
+        className=" flex flex-col justify-center px-5 py-20 animate__animated animate__fadeInLeft"
+        id="About"
       >
-        <div className=" flex justify-end">
-          <img
-            src={profile}
-            alt="bio image"
-            className="rounded"
-            id="bio_image"
-          />
+        <Typography className="text-white text-4xl my-10">
+          {' '}
+          &#60; {'Chi sono? '}
+          <span className="text-gold">/</span> &#62;{' '}
+        </Typography>
+
+        <div
+          className={`${'typewriter-it'} w-fit text-white grid gap-4 lg:grid-cols-2 lg:mx-0`}
+        >
+          <div>
+            <Typography className={`${'line-it anim-typewriter-it'} text-7xl`}>
+              {'Ciao'} !
+            </Typography>
+            <Typography className="text-xl mt-3">
+              Immagina di essere un bambino con gli occhi pieni di stelle,
+              sognando di diventare un astronauta e di esplorare l'universo.
+              Bene, mentre alcuni sognano di viaggiare nello spazio, io ho
+              sempre sognato di viaggiare nel mondo del codice e della
+              tecnologia. Da quel primo giorno, ho saputo che la mia avventura
+              sarebbe stata nel fantastico universo del front-end development.
+            </Typography>
+            <Typography className="text-xl mt-3">
+              Sono <span className="text-gold">Catalin</span>, un front-end
+              developer junior con una passione per il design che fa brillare
+              gli occhi e per il codice che dà vita alle idee. Ogni riga di
+              codice che scrivo è come una piccola esplorazione, un passo verso
+              la creazione di qualcosa di straordinario e innovativo.
+            </Typography>{' '}
+            <Typography className="text-xl mt-3">
+              Nel mio portfolio, troverai non solo progetti tecnicamente
+              impeccabili, ma anche un pizzico di magia digitale e un sacco di
+              creatività. Dal design pixel-perfect all'implementazione di
+              soluzioni innovative, il mio obiettivo è sempre quello di
+              trasformare visioni in realtà e di farlo con un sorriso.
+            </Typography>
+            <Typography className="text-xl mt-3">
+              Se anche tu sogni di portare il tuo progetto alla luce della
+              ribalta, o se stai cercando un collaboratore appassionato e
+              creativo, allora sei nel posto giusto. Esplora il mio lavoro e
+              vediamo insieme come possiamo trasformare le tue idee in una
+              realtà vibrante e coinvolgente.
+            </Typography>
+            <Typography className="text-xl mt-3">
+              Pronto per un'avventura digitale? 🚀✨
+            </Typography>
+          </div>
         </div>
-        <div>
-          <Typography
-            className={`${
-              lang ? 'line-en anim-typewriter-en' : 'line-it anim-typewriter-it'
-            } text-7xl`}
-          >
-            {lang ? 'Hi' : 'Ciao'} !
-          </Typography>
-          <Typography className="text-xl mt-3">
-            {lang ? "I'm " : 'Sono'} Catalin, aka{' '}
-            <span className="text-gold">ZeroHenriot</span>.{' '}
-            {lang ? 'Why this' : 'Perchè questo'} nick?{' '}
-            {lang ? "I don't know" : 'Non lo so'},{' '}
-            {lang ? 'it just sounds good' : 'suona semplicemente bene'}.
-          </Typography>
-          <Typography className="text-xl mt-3">
-            {lang
-              ? "When I'm not tinkering with color codes, you'll find me immersing myself in virtual worlds, armed with a controller and ready to take on any  enemy (or save damsels in distress!)"
-              : 'Quando non armeggio con i codici colorati, mi troverai ad immergermi in mondi virtuali, armato di controller e pronto ad affrontare qualsiasi nemico (o a salvare principesse in pericolo!)'}
-            .
-          </Typography>{' '}
-          <Typography className="text-xl mt-3">
-            {lang
-              ? 'I also have a soft spot for cats - those little furry beings that seem to rule the world (spoiler, they do) - and I could spend hours watching funny cat videos online'
-              : 'Ho anche un debole per i gatti - quei piccoli esseri pelosi che sembrano governare il mondo (spoiler, lo fanno) - e potrei passare ore a guardare video divertenti di gatti online'}
-            .{' '}
-          </Typography>
-          <Typography className="text-xl mt-3">
-            {lang
-              ? 'Despite being a sports enthusiast, I must admit that my actual sports participation is limited to the occasional competition on the virtual field'
-              : 'Pur essendo un appassionato di sport, devo ammettere che la mia effettiva partecipazione sportiva si limita alla competizione occasionale sul campo virtuale'}
-            .
-          </Typography>
-          <Typography className="text-xl mt-3">
-            {lang
-              ? "Oh, and let's not forget that I'm a junior front-end developer on a mission to bring a touch of digital magic to the world. So get ready to explore my digital universe of code, cats, and pixel-perfect wonders"
-              : 'Oh, e non dimentichiamo che sono uno sviluppatore front-end junior con la missione di portare un tocco di magia digitale nel mondo. Quindi preparati a esplorare il mio universo digitale fatto di codici, gatti e meraviglie pixel-perfect.'}
-            ! 🎮😸💻
-          </Typography>
+        <div style={{ position: 'absolute', width: '100%' }}>
+          <Robot />
         </div>
       </div>
-    </div>
+    </>
   )
 }
 export default MyBiography

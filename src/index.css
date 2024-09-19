@@ -39,3 +39,7 @@ body,
   min-height: 100vh;
   background-color: #080215;
 }
+
+#root {
+  overflow-x: hidden;
+}

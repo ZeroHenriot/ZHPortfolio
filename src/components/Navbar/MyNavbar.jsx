@@ -5,17 +5,9 @@ import {
   Typography,
   IconButton,
 } from '@material-tailwind/react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setLanguage } from '../../redux/actions/actions'
 
 const MyNavbar = () => {
   const [openNav, setOpenNav] = useState(false)
-  const lang = useSelector((state) => state.Language.lang)
-  const dispatch = useDispatch()
-
-  const handelLang = () => {
-    dispatch(setLanguage(!lang))
-  }
 
   useEffect(() => {
     window.addEventListener(
@@ -33,7 +25,7 @@ const MyNavbar = () => {
         className="flex items-center gap-x-2 text-xl text-white hover:text-gold p-1 font-medium "
       >
         <a href="#About" className="flex items-center">
-          {lang ? 'About Me' : 'Su di me'}
+          {'Su di me'}
         </a>
       </Typography>
       <Typography
@@ -43,7 +35,7 @@ const MyNavbar = () => {
         className="flex items-center gap-x-2 text-xl text-white hover:text-gold p-1 font-medium "
       >
         <a href="#Projects" className="flex items-center">
-          {lang ? 'Projects' : 'Progetti'}
+          {'Progetti'}
         </a>
       </Typography>
       <Typography
@@ -63,22 +55,8 @@ const MyNavbar = () => {
         className="flex items-center gap-x-2 text-xl text-white hover:text-gold p-1 font-medium "
       >
         <a href="#Contacts" className="flex items-center">
-          {lang ? 'Contacts' : 'Contatti'}
+          {'Contatti'}
         </a>
-      </Typography>
-
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 text-xl text-white hover:text-gold p-1 font-medium cursor-pointer"
-        onClick={handelLang}
-      >
-        {!lang ? (
-          <img src="https://flagsapi.com/GB/flat/24.png" />
-        ) : (
-          <img src="https://flagsapi.com/IT/flat/24.png" />
-        )}
       </Typography>
     </ul>
   )

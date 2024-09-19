@@ -21,7 +21,7 @@ const MySkills = () => {
       const scrollPosition = window.scrollY
 
       // Adjust this value as needed based on when you want the animations to start
-      const triggerPosition = 1100 // For example, trigger the animations when the user scrolls down 300px
+      const triggerPosition = 500 // For example, trigger the animations when the user scrolls down 300px
 
       if (scrollPosition > triggerPosition && !animation) {
         setAnimation(true)
@@ -38,7 +38,7 @@ const MySkills = () => {
   }, [animation])
   return (
     <div
-      className={`container mx-auto py-20 px-5 lg:px-0 flex flex-col ${
+      className={` py-20 px-5 flex flex-col ${
         animation ? 'animate__animated animate__fadeInLeft' : 'hidden'
       }`}
       id="Skills"
