@@ -3,7 +3,7 @@ export const GET_PROJECTS = 'GET_PROJECTS'
 export const getProjects = () => {
   return async (dispatch) => {
     try {
-      const res = await fetch('http://localhost:3000/projects', {
+      const res = await fetch('http://localhost:3001/projects', {
         method: 'GET',
       })
       if (res.ok) {
