@@ -7,9 +7,11 @@ import {
 } from '@material-tailwind/react'
 import emailjs from '@emailjs/browser'
 import { useEffect, useState } from 'react'
+import CustomAlert from '../Alert/Alert'
 
 const MyContacts = () => {
   const [animation, setAnimation] = useState(false)
+  const [alert, setAlert] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +54,7 @@ const MyContacts = () => {
       .then(
         () => {
           console.log('email send with success')
+          setAlert(true)
         },
         (error) => {
           console.log('FAILED...', error.text)
@@ -85,7 +88,7 @@ const MyContacts = () => {
           className="mt-1 font-normal text-xl text-white"
         >
           {
-            'Hai bisogno di più informazioni? Contattami e un gatto ti risponderà il prima possibile'
+            'Hai bisogno di più informazioni? Contattami e partiamo insieme per la nostra avventura'
           }{' '}
           !
         </Typography>
@@ -146,6 +149,7 @@ const MyContacts = () => {
               {'Messaggio'}
             </Typography>
             <Textarea
+              className="text-white text-xl"
               required
               value={emailContent.descriptionRole}
               onChange={(e) => {
@@ -157,8 +161,12 @@ const MyContacts = () => {
               label={'Il tuo messaggio'}
             />
           </div>
+          {alert && <CustomAlert />}
           <div className="flex items-center justify-between text-xl text-white mt-3">
-            <Button type="submit" className="w-fit bg-gold text-lg">
+            <Button
+              type="submit"
+              className="w-fit bg-gold hover:bg-darkgold duration-700 text-lg"
+            >
               {'Inoltra'}
             </Button>
           </div>

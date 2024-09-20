@@ -1,0 +1,37 @@
+{
+  "projects": [
+    {
+      "name": "Capstone Project",
+      "description": "Ti piace la F1? Visita il sito creato da un appassionato per altri appassionati e rimani aggiornato sulla regina del motorsport",
+      "photo": "./src/assets/F1.png",
+      "github": "https://github.com/ZeroHenriot/capstone-project",
+      "deployed": false,
+      "id": 1
+    },
+    {
+      "name": "PubZero",
+      "description": "Vuoi una birra e un po' di divertimento? PubZero è il posto perfetto per te! Venite a trovarci nei nostri tre pub",
+      "photo": "./src/assets/pubzero.png",
+      "github": "https://github.com/ZeroHenriot/pubzero",
+      "deployed": false,
+      "id": 2
+    },
+    {
+      "name": "Linkedin Clone",
+      "description": "Tutti conoscono LinkedIn, giusto? Bene, ecco un clone perfetto del social network professionale più famoso al mondo",
+      "photo": "./src/assets/Linkedin.png",
+      "github": "https://github.com/plmcst96/bw3-linkedin",
+      "deployed": false,
+      "id": 3
+    },
+    {
+      "name": "Weather App",
+      "description": "Pioverà? Splenderà il sole? O forse nevicherà? Non lo sai? Bene, allora questa app è perfetta per te. Provatela e scoprite come dovreste vestirvi",
+      "photo": "./src/assets/WeatherApp.png",
+      "github": "https://github.com/ZeroHenriot/progetto-u3-w2",
+      "deployed": true,
+      "link": "https://progetto-u3-w2.vercel.app/",
+      "id": 4
+    }
+  ]
+}

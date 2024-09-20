@@ -63,7 +63,7 @@ const MyNavbar = () => {
 
   return (
     <>
-      <Navbar className="px-4 py-2 lg:px-8 lg:py-4 max-w-full rounded-none backdrop-blur-sm bg-white/30 border-none sticky top-0 z-50">
+      <Navbar className="px-4 py-2 lg:px-8 lg:py-4 max-w-full rounded-none backdrop-blur-sm bg-white/5 border-none rounded-b-lg fixed top-0 z-50">
         <div className="flex items-center text-blue-gray-900 justify-center ">
           <div className="hidden lg:block">{navList}</div>
 

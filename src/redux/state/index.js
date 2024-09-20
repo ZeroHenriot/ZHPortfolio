@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import projectsReducer from '../reducers/Projects'
 
-import languageReducer from '../reducers/Language'
+const bigReducer = combineReducers({ projects: projectsReducer })
 
-const bigReducer = combineReducers({ Language: languageReducer })
 const store = configureStore({
   reducer: bigReducer,
 })

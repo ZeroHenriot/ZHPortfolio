@@ -10,14 +10,16 @@ import {
 import './MyProject.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { useEffect, useState } from 'react'
-import pubzero from '../../assets/pubzero.png'
-import linkedin from '../../assets/Linkedin.png'
-import weatherapp from '../../assets/WeatherApp.png'
-import f1 from '../../assets/F1.png'
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProjects } from '../../redux/actions/actions'
 
 const MyProjects = () => {
+  const projects = useSelector((state) => state.projects.content)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getProjects())
+  }, [])
   return (
     <>
       <div
@@ -36,130 +38,47 @@ const MyProjects = () => {
           autoplay={true}
           loop={true}
         >
-          <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
-            <CardHeader color="blue-gray" className="relative">
-              <img src={pubzero} alt="pubzero-project" />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h5" className="mb-2 text-gold">
-                PubZero
-              </Typography>
-              <Typography className="text-white">
-                {
-                  "Vuoi una birra e un po' di divertimento? PubZero è il posto perfetto per te! Venite a trovarci nei nostri tre pub"
-                }
-                !
-              </Typography>
-            </CardBody>
-            <CardFooter>
-              <Typography className="flex justify-end">
-                <a
-                  href="https://github.com/ZeroHenriot/pubzero"
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="text-gold text-3xl duration-700 hover:scale-125"
-                  />
-                </a>
-              </Typography>
-            </CardFooter>
-          </Card>
-          <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
-            <CardHeader color="blue-gray" className="relative">
-              <img src={f1} alt="capstone-project" />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h5" className="mb-2 text-gold">
-                Capstone Project
-              </Typography>
-              <Typography className="text-white">
-                {
-                  'Ti piace la F1? Visita il sito creato da un appassionato per altri appassionati e rimani aggiornato sulla regina del motorsport'
-                }
-                !
-              </Typography>
-            </CardBody>{' '}
-            <CardFooter>
-              <Typography className="flex justify-end">
-                <a
-                  href="https://github.com/ZeroHenriot/capstone-project"
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="text-gold text-3xl duration-700 hover:scale-125"
-                  />
-                </a>
-              </Typography>
-            </CardFooter>
-          </Card>
-          <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
-            <CardHeader color="blue-gray" className="relative">
-              <img src={linkedin} alt="linkedin-project" />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h5" className="mb-2 text-gold">
-                Linkedin Clone
-              </Typography>
-              <Typography className="text-white">
-                {
-                  'Tutti conoscono LinkedIn, giusto? Bene, ecco un clone perfetto del social network professionale più famoso al mondo'
-                }
-                .
-              </Typography>
-            </CardBody>{' '}
-            <CardFooter>
-              <Typography className="flex justify-end">
-                <a
-                  href="https://github.com/plmcst96/bw3-linkedin"
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="text-gold text-3xl duration-700 hover:scale-125"
-                  />
-                </a>
-              </Typography>
-            </CardFooter>
-          </Card>
-          <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
-            <CardHeader color="blue-gray" className="relative">
-              <img src={weatherapp} alt="weatherapp-project" />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h5" className="mb-2 text-gold">
-                Weather App
-              </Typography>
-              <Typography className="text-white">
-                {
-                  'Pioverà? Splenderà il sole? O forse nevicherà? Non lo sai? Bene, allora questa app è perfetta per te. Provatela e scoprite come dovreste vestirvi'
-                }
-                .
-              </Typography>
-            </CardBody>
-            <CardFooter className="pt-0">
-              <Typography className="flex justify-between">
-                <a
-                  href="https://progetto-u3-w2.vercel.app/"
-                  target="_blank"
-                  className="TryItBtn font-bold"
-                >
-                  {'Provala'}!
-                </a>
-                <a
-                  href="https://github.com/ZeroHenriot/progetto-u3-w2"
-                  target="_blank"
-                >
-                  {' '}
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="text-gold text-3xl duration-700 hover:scale-125"
-                  />
-                </a>
-              </Typography>
-            </CardFooter>
-          </Card>
+          {projects.map((project, index) => (
+            <>
+              <Card
+                className={`mt-6 w-full md:px-24 cards justify-between `}
+                key={index}
+              >
+                <CardHeader color="blue-gray" className="relative">
+                  <img src={project.photo} alt="pubzero-project" />
+                </CardHeader>
+                <CardBody>
+                  <Typography variant="h5" className="mb-2 text-gold">
+                    {project.name}
+                  </Typography>
+                  <Typography className="text-white">
+                    {project.description}
+                  </Typography>
+                </CardBody>
+                <CardFooter className="pt-0">
+                  <Typography className="flex justify-between">
+                    {project.deployed ? (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        className="TryItBtn font-bold"
+                      >
+                        Provala!
+                      </a>
+                    ) : null}
+
+                    <a href={project.github} target="_blank">
+                      {' '}
+                      <FontAwesomeIcon
+                        icon={faGithub}
+                        className="text-gold text-3xl duration-700 hover:scale-125"
+                      />
+                    </a>
+                  </Typography>
+                </CardFooter>
+              </Card>
+            </>
+          ))}
         </Carousel>
       </div>
     </>
