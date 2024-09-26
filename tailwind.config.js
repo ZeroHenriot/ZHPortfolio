@@ -14,6 +14,24 @@ module.exports = withMT({
         newmain: '#8fd3c8',
         newsec: '#e1d2a6',
       },
+      fontSize: {
+        '10xl': '9rem',
+        '11xl': '20rem',
+      },
+      lineHeight: {
+        11: '8rem',
+      },
+      maxWidth: {
+        99: '500px',
+      },
+      inset: {
+        '1/10': '10%',
+        '1/2.2': '45%',
+        '1/16': '16%',
+      },
+    },
+    fontFamily: {
+      custom: ['"Abril Fatface"', 'serif'],
     },
   },
   plugins: [],

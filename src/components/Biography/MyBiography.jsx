@@ -56,9 +56,9 @@ const MyBiography = () => {
             </Typography>
           </div>
         </div>
-        <div style={{ position: 'absolute', width: '100%' }}>
+        {/* <div style={{ position: 'absolute', width: '100%' }}>
           <Robot />
-        </div>
+        </div> */}
       </div>
     </>
   )

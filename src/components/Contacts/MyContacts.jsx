@@ -10,24 +10,7 @@ import { useEffect, useState } from 'react'
 import CustomAlert from '../Alert/Alert'
 
 const MyContacts = () => {
-  const [animation, setAnimation] = useState(false)
   const [alert, setAlert] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      const triggerPosition = 1100
-      if (scrollPosition > triggerPosition && !animation) {
-        setAnimation(true)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [animation])
 
   const [emailContent, setEmailContent] = useState({
     name: '',
@@ -45,7 +28,6 @@ const MyContacts = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    // Invia l'email
 
     emailjs
       .send('portfolio', 'email_portfolio', formData, {
@@ -61,7 +43,6 @@ const MyContacts = () => {
         }
       )
 
-    // Resetta il contenuto del form
     setEmailContent({
       name: '',
       surname: '',
@@ -72,9 +53,7 @@ const MyContacts = () => {
 
   return (
     <div
-      className={`container mx-auto py-20 px-5 lg:px-0 flex flex-col ${
-        animation ? 'animate__animated animate__fadeInLeft' : 'hidden'
-      }`}
+      className={`container mx-auto py-20 px-5 lg:px-0 flex flex-col ${'animate__animated animate__fadeInLeft'}`}
       id="Contacts"
     >
       <Typography className="text-white text-4xl my-10">
