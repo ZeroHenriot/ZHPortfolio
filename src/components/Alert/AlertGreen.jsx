@@ -17,7 +17,7 @@ function Icon() {
   )
 }
 
-const CustomAlert = () => {
+const AlertGreen = () => {
   return (
     <Alert
       icon={<Icon />}
@@ -28,4 +28,4 @@ const CustomAlert = () => {
   )
 }
 
-export default CustomAlert
+export default AlertGreen

@@ -6,11 +6,14 @@ import {
   Typography,
 } from '@material-tailwind/react'
 import emailjs from '@emailjs/browser'
-import { useEffect, useState } from 'react'
-import CustomAlert from '../Alert/Alert'
+import { useState } from 'react'
+
+import AlertGreen from '../Alert/AlertGreen'
+import AlertRed from '../Alert/AlertRed' // Importa il tuo AlertRed
 
 const MyContacts = () => {
-  const [alert, setAlert] = useState(false)
+  const [alertSuccess, setAlertSuccess] = useState(false)
+  const [alertError, setAlertError] = useState(false) // Stato per l'alert di errore
 
   const [emailContent, setEmailContent] = useState({
     name: '',
@@ -36,13 +39,17 @@ const MyContacts = () => {
       .then(
         () => {
           console.log('email send with success')
-          setAlert(true)
+          setAlertSuccess(true)
+          setAlertError(false) // Resetta l'alert di errore
         },
         (error) => {
           console.log('FAILED...', error.text)
+          setAlertError(true) // Mostra l'alert di errore
+          setAlertSuccess(false) // Resetta l'alert di successo
         }
       )
 
+    // Resetta il contenuto del form
     setEmailContent({
       name: '',
       surname: '',
@@ -53,19 +60,13 @@ const MyContacts = () => {
 
   return (
     <div
-      className={`container mx-auto py-20 px-5 lg:px-0 flex flex-col ${'animate__animated animate__fadeInLeft'}`}
+      className="px-6 md:px-24 py-16 flex flex-col md:justify-center h-full animate__animated animate__fadeInLeft"
       id="Contacts"
     >
-      <Typography className="text-white text-4xl my-10">
-        {' '}
-        &#60; {'Contattami'} <span className="text-gold">/</span> &#62;{' '}
-      </Typography>
+      <Typography className=" text-4xl my-10">Contattami</Typography>
 
-      <Card color="transparent" className="text-xl text-white" shadow={false}>
-        <Typography
-          color="gray"
-          className="mt-1 font-normal text-xl text-white"
-        >
+      <Card color="transparent" className="text-xl " shadow={false}>
+        <Typography color="gray" className="mt-1 font-normal text-xl ">
           {
             'Hai bisogno di più informazioni? Contattami e partiamo insieme per la nostra avventura'
           }{' '}
@@ -76,7 +77,7 @@ const MyContacts = () => {
             <Typography
               variant="h6"
               color="blue-gray"
-              className="-mb-3 text-xl text-white"
+              className="-mb-3 text-xl "
             >
               {'Il tuo nome'}
             </Typography>
@@ -84,7 +85,7 @@ const MyContacts = () => {
               required
               size="lg"
               label={'Il tuo nome'}
-              className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-xl text-white"
+              className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-xl "
               value={emailContent.name}
               onChange={(e) => {
                 setEmailContent({
@@ -99,7 +100,7 @@ const MyContacts = () => {
             <Typography
               variant="h6"
               color="blue-gray"
-              className="-mb-3 text-xl text-white"
+              className="-mb-3 text-xl "
             >
               {'La tua Email'}
             </Typography>
@@ -108,7 +109,7 @@ const MyContacts = () => {
               type="email"
               size="lg"
               label={'La tua Email'}
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900 text-xl text-white"
+              className=" !border-t-blue-gray-200 focus:!border-t-gray-900 text-xl "
               value={emailContent.email}
               onChange={(e) => {
                 setEmailContent({
@@ -123,12 +124,12 @@ const MyContacts = () => {
             <Typography
               variant="h6"
               color="blue-gray"
-              className="-mb-3 text-xl text-white"
+              className="-mb-3 text-xl "
             >
               {'Messaggio'}
             </Typography>
             <Textarea
-              className="text-white text-xl"
+              className=" text-xl"
               required
               value={emailContent.descriptionRole}
               onChange={(e) => {
@@ -140,8 +141,9 @@ const MyContacts = () => {
               label={'Il tuo messaggio'}
             />
           </div>
-          {alert && <CustomAlert />}
-          <div className="flex items-center justify-between text-xl text-white mt-3">
+          {alertSuccess && <AlertGreen />}
+          {alertError && <AlertRed />}
+          <div className="flex items-center justify-between text-xl mt-3">
             <Button
               type="submit"
               className="w-fit bg-gold hover:bg-darkgold duration-700 text-lg"

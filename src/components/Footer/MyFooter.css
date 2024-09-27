@@ -1,0 +1,13 @@
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: -2px;
+}
+
+@media (min-width: 720px) {
+  .writing-mode-vertical-based {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: -2px;
+  }
+}

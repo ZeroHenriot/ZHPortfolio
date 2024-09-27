@@ -1,27 +1,14 @@
 import { Typography } from '@material-tailwind/react'
+import profile from '../../../public/assets/profile.jpg'
 import './MyBiography.css'
-import Robot from '../Robot/Robot'
 
 const MyBiography = () => {
   return (
-    <>
-      <div
-        className=" flex flex-col justify-center px-5 py-20 animate__animated animate__fadeInLeft"
-        id="About"
-      >
-        <Typography className="text-white text-4xl my-10">
-          {' '}
-          &#60; {'Chi sono? '}
-          <span className="text-gold">/</span> &#62;{' '}
-        </Typography>
-
-        <div
-          className={`${'typewriter-it'} w-fit text-white grid gap-4 lg:grid-cols-2 lg:mx-0`}
-        >
+    <div className="flex flex-col justify-center px-6 md:px-24 py-32 w-full h-full animate__animated animate__fadeInLeft">
+      <div className="xl:flex items-center h-full w-full grid gap-4 xl:grid-cols-2">
+        <div className="h-full w-fit lg:mx-0">
           <div>
-            <Typography className={`${'line-it anim-typewriter-it'} text-7xl`}>
-              {'Ciao'} !
-            </Typography>
+            <Typography className="text-7xl">Ciao!</Typography>
             <Typography className="text-xl mt-3">
               Immagina di essere un bambino con gli occhi pieni di stelle,
               sognando di diventare un astronauta e di esplorare l'universo.
@@ -36,7 +23,7 @@ const MyBiography = () => {
               gli occhi e per il codice che dà vita alle idee. Ogni riga di
               codice che scrivo è come una piccola esplorazione, un passo verso
               la creazione di qualcosa di straordinario e innovativo.
-            </Typography>{' '}
+            </Typography>
             <Typography className="text-xl mt-3">
               Nel mio portfolio, troverai non solo progetti tecnicamente
               impeccabili, ma anche un pizzico di magia digitale e un sacco di
@@ -56,11 +43,12 @@ const MyBiography = () => {
             </Typography>
           </div>
         </div>
-        {/* <div style={{ position: 'absolute', width: '100%' }}>
-          <Robot />
-        </div> */}
+        <div className="hidden xl:block">
+          <img src={profile} alt="" draggable={false} className="rounded" />
+        </div>
       </div>
-    </>
+    </div>
   )
 }
+
 export default MyBiography

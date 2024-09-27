@@ -1,168 +1,102 @@
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Carousel,
-  Typography,
-} from '@material-tailwind/react'
-
+import { Card, Dialog, DialogBody, Typography } from '@material-tailwind/react'
 import './MyProject.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { useEffect, useState } from 'react'
-import pubzero from '../../../public/assets/pubzero.png'
-import linkedin from '../../../public/assets/Linkedin.png'
-import weatherapp from '../../../public/assets/WeatherApp.png'
-import f1 from '../../../public/assets/F1.png'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProjects } from '../../redux/actions/actions'
 
 const MyProjects = () => {
+  const projects = useSelector((state) => state.projects.content)
+  const dispatch = useDispatch()
+
+  const [open, setOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState('')
+
+  const handleOpen = (imageUrl) => {
+    setSelectedImage(imageUrl)
+    setOpen(true)
+  }
+
+  useEffect(() => {
+    dispatch(getProjects())
+  }, [dispatch])
+
   return (
     <>
       <div
-        className={`flex flex-col justify-center mt-20 px-5 py-20 ${'animate__animated animate__fadeInLeft'}`}
+        className={`flex flex-col justify-center px-6 md:px-24 py-16 w-full min-h-screen animate__animated animate__fadeInLeft overflow-y-auto `}
         id="Projects"
       >
-        <Typography className="text-white text-4xl my-10 px-5">
-          {' '}
-          &#60; {'I miei progetti'} <span className="text-gold">/</span> &#62;{' '}
-        </Typography>
-        <Carousel
-          transition={{ duration: 2 }}
-          className="rounded-xl"
-          prevArrow={false}
-          nextArrow={false}
-          autoplay={true}
-          loop={true}
-        >
-          <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
-            <CardHeader color="blue-gray" className="relative">
-              <img src={pubzero} alt="pubzero-project" />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h5" className="mb-2 text-gold">
-                PubZero
+        <Typography className="text-4xl my-10">Progetti</Typography>
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className={`flex flex-col md:flex-row ${
+              index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+            } justify-between items-start mt-6 w-full h-auto md:h-[400px] shadow rounded-xl `}
+          >
+            <Card
+              className={`h-full w-full md:w-1/2 bg-transparent shadow-none text-black mb-4 md:mb-0`}
+            >
+              <img
+                src={project.photo}
+                alt={project.name}
+                className="w-full h-full object-cover rounded-lg cursor-pointer"
+                onClick={() => handleOpen(project.photo)}
+              />
+            </Card>
+            <Card
+              className={`w-full h-full md:w-1/2 bg-transparent shadow-none p-5 justify-between text-black`}
+            >
+              <Typography variant="h5" className="mb-2 text-darkgold">
+                {project.name}
               </Typography>
-              <Typography className="text-white">
-                {
-                  "Vuoi una birra e un po' di divertimento? PubZero è il posto perfetto per te! Venite a trovarci nei nostri tre pub"
-                }
-                !
-              </Typography>
-            </CardBody>
-            <CardFooter>
-              <Typography className="flex justify-end">
+              <Typography>{project.description}</Typography>
+
+              <Typography className="flex justify-between mt-2">
+                {project.deployed ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="TryItBtn font-bold"
+                  >
+                    Provala!
+                  </a>
+                ) : null}
                 <a
-                  href="https://github.com/ZeroHenriot/pubzero"
+                  href={project.github}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FontAwesomeIcon
                     icon={faGithub}
-                    className="text-gold text-3xl duration-700 hover:scale-125"
+                    className="text-darkgold text-3xl duration-700 hover:scale-125"
                   />
                 </a>
               </Typography>
-            </CardFooter>
-          </Card>
-          <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
-            <CardHeader color="blue-gray" className="relative">
-              <img src={f1} alt="capstone-project" />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h5" className="mb-2 text-gold">
-                Capstone Project
-              </Typography>
-              <Typography className="text-white">
-                {
-                  'Ti piace la F1? Visita il sito creato da un appassionato per altri appassionati e rimani aggiornato sulla regina del motorsport'
-                }
-                !
-              </Typography>
-            </CardBody>{' '}
-            <CardFooter>
-              <Typography className="flex justify-end">
-                <a
-                  href="https://github.com/ZeroHenriot/capstone-project"
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="text-gold text-3xl duration-700 hover:scale-125"
-                  />
-                </a>
-              </Typography>
-            </CardFooter>
-          </Card>
-          <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
-            <CardHeader color="blue-gray" className="relative">
-              <img src={linkedin} alt="linkedin-project" />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h5" className="mb-2 text-gold">
-                Linkedin Clone
-              </Typography>
-              <Typography className="text-white">
-                {
-                  'Tutti conoscono LinkedIn, giusto? Bene, ecco un clone perfetto del social network professionale più famoso al mondo'
-                }
-                .
-              </Typography>
-            </CardBody>{' '}
-            <CardFooter>
-              <Typography className="flex justify-end">
-                <a
-                  href="https://github.com/plmcst96/bw3-linkedin"
-                  target="_blank"
-                >
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="text-gold text-3xl duration-700 hover:scale-125"
-                  />
-                </a>
-              </Typography>
-            </CardFooter>
-          </Card>
-          <Card className={`mt-6 w-full md:px-24 cards justify-between `}>
-            <CardHeader color="blue-gray" className="relative">
-              <img src={weatherapp} alt="weatherapp-project" />
-            </CardHeader>
-            <CardBody>
-              <Typography variant="h5" className="mb-2 text-gold">
-                Weather App
-              </Typography>
-              <Typography className="text-white">
-                {
-                  'Pioverà? Splenderà il sole? O forse nevicherà? Non lo sai? Bene, allora questa app è perfetta per te. Provatela e scoprite come dovreste vestirvi'
-                }
-                .
-              </Typography>
-            </CardBody>
-            <CardFooter className="pt-0">
-              <Typography className="flex justify-between">
-                <a
-                  href="https://progetto-u3-w2.vercel.app/"
-                  target="_blank"
-                  className="TryItBtn font-bold"
-                >
-                  {'Provala'}!
-                </a>
-                <a
-                  href="https://github.com/ZeroHenriot/progetto-u3-w2"
-                  target="_blank"
-                >
-                  {' '}
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="text-gold text-3xl duration-700 hover:scale-125"
-                  />
-                </a>
-              </Typography>
-            </CardFooter>
-          </Card>
-        </Carousel>
+            </Card>
+          </div>
+        ))}
       </div>
+
+      <Dialog
+        size="xl"
+        open={open}
+        handler={() => setOpen(false)}
+        className="bg-transparent"
+      >
+        <DialogBody>
+          <img
+            alt="Project"
+            className="w-full h-full rounded-lg object-cover object-center"
+            src={selectedImage}
+          />
+        </DialogBody>
+      </Dialog>
     </>
   )
 }
+
 export default MyProjects
