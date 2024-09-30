@@ -12,7 +12,6 @@ const Home = () => {
       const now = new Date()
       setHour(format(now, 'HH:mm:ss'))
 
-      // Aggiorna la data solo se è cambiata
       const newDay = format(now, 'dd')
       const newMonth = format(now, 'MMM')
       if (newDay !== day) {
@@ -21,14 +20,13 @@ const Home = () => {
       }
     }, 1000)
 
-    // Cleanup the interval on component unmount
     return () => clearInterval(interval)
-  }, [day]) // Aggiungi 'day' come dipendenza
+  }, [day])
 
   return (
     <>
       <div className="absolute bottom-0 left-0 flex z-[97] animate__animated animate__fadeInLeft">
-        <h1 className="text-5xl md:text-4.5xl xl:text-6.9xl 2xl:text-7xl 3xl:text-8xl mb-6 2xl:mb-2">
+        <h1 className="text-5xl md:text-4.5xl xl:text-6.9xl 2xl:text-7xl 3xl:text-8xl 2xl:mb-2 ">
           Catalin Darii
           <span className="hidden md:inline">-</span> Frontend Developer
         </h1>
