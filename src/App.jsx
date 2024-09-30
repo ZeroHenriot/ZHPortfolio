@@ -9,46 +9,37 @@ import { Analytics } from '@vercel/analytics/react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './components/Home/Home'
 import Background from './components/Background/Background'
-import Loader from './components/Loader/Loader'
-import { useEffect, useState } from 'react'
+// import Loader from './components/Loader/Loader'
+// import { useEffect, useState } from 'react'
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 3000)
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false)
+  //   }, 3000)
 
-    return () => clearTimeout(timer)
-  }, [])
+  //   return () => clearTimeout(timer)
+  // }, [])
 
   return (
     <div className="flex flex-col h-screen">
-      {loading ? (
-        <>
-          <Loader />
+      <BrowserRouter>
+        <MyNavbar />
+        <main className="grow h-screen">
           <Background />
-        </>
-      ) : (
-        <>
-          <BrowserRouter>
-            <MyNavbar />
-            <main className="grow h-screen">
-              <Background />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/About" element={<MyBiography />} />
-                <Route path="/Projects" element={<MyProjects />} />
-                <Route path="/Skills" element={<MySkills />} />
-                <Route path="/Contacts" element={<MyContacts />} />
-              </Routes>
-            </main>
-            <MyFooter />
-          </BrowserRouter>
-          <Analytics />
-        </>
-      )}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/About" element={<MyBiography />} />
+            <Route path="/Projects" element={<MyProjects />} />
+            <Route path="/Skills" element={<MySkills />} />
+            <Route path="/Contacts" element={<MyContacts />} />
+          </Routes>
+        </main>
+        <MyFooter />
+      </BrowserRouter>
+      <Analytics />
     </div>
   )
 }
