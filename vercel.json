@@ -1,3 +1,13 @@
 {
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://portfolio-g999y1fdu-zerohenriots-projects.vercel.app/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
