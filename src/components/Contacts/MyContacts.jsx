@@ -33,8 +33,8 @@ const MyContacts = () => {
     e.preventDefault()
 
     emailjs
-      .send('portfolio', 'email_portfolio', formData, {
-        publicKey: 'AjxpFxrGclyzpn9af',
+      .send('portfolio1', 'email_portfolio', formData, {
+        publicKey: 'TMICBwT9mP1ugmxF9',
       })
       .then(
         () => {
