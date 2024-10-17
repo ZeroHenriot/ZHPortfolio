@@ -39,12 +39,24 @@ const MyProjects = () => {
             <Card
               className={`h-full w-full md:w-1/2 bg-transparent shadow-none text-black mb-4 md:mb-0`}
             >
-              <img
-                src={project.photo}
-                alt={project.name}
-                className="w-full h-full object-cover rounded-lg cursor-pointer"
-                onClick={() => handleOpen(project.photo)}
-              />
+              {project.type === 'video' ? (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
+                  onClick={() => handleOpen(project.asset)}
+                >
+                  <source src={project.asset} type="video/mp4" />
+                </video>
+              ) : (
+                <img
+                  src={project.asset}
+                  alt={project.name}
+                  className="w-full h-full object-cover rounded-lg cursor-pointer"
+                  onClick={() => handleOpen(project.asset)}
+                />
+              )}
             </Card>
             <Card
               className={`w-full h-full md:w-1/2 bg-transparent shadow-none p-5 justify-between text-black`}
@@ -88,11 +100,22 @@ const MyProjects = () => {
         className="bg-transparent"
       >
         <DialogBody>
-          <img
-            alt="Project"
-            className="w-full h-full rounded-lg object-cover object-center"
-            src={selectedImage}
-          />
+          {selectedImage.includes('.mp4') ? (
+            <video
+              autoPlay
+              muted
+              loop
+              className="w-full h-full rounded-lg object-cover object-center"
+            >
+              <source src={selectedImage} type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              alt="Project"
+              className="w-full h-full rounded-lg object-cover object-center"
+              src={selectedImage}
+            />
+          )}
         </DialogBody>
       </Dialog>
     </>
